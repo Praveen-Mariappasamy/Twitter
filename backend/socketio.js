@@ -5,7 +5,7 @@ let io;
 const initializeSocketIO = (server) => {
   io = socket(server, {
     cors: {
-      origin: process.env.CLIENT_URL,
+      origin: "https://twitter-3k3r.vercel.app/",
     },
   });
 
