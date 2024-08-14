@@ -8,7 +8,7 @@ import { BiLogOut } from "react-icons/bi";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
- 
+
 const DesktopProfileModal = ({ open, setOpen }) => {
   const navigate = useNavigate();
   const toast = useToast();
@@ -18,7 +18,7 @@ const DesktopProfileModal = ({ open, setOpen }) => {
   const handleLogout = async () => {
     console.log("in handle logout");
     try {
-      await axios.post(`${import.meta.env.VITE_SERVER_URL}/auth/logout`, null, {
+      await axios.post(`http://localhost:8000/auth/logout`, null, {
         withCredentials: true,
       });
       localStorage.removeItem("userInfo");
@@ -37,7 +37,7 @@ const DesktopProfileModal = ({ open, setOpen }) => {
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={()=>setOpen(false)}>
+      <Dialog as="div" className="relative z-10" onClose={() => setOpen(false)}>
         {/* Dark overlay */}
         <div className="fixed inset-0 " />
 

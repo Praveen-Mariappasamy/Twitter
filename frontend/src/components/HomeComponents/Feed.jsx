@@ -31,7 +31,7 @@ const Feed = ({ feed }) => {
     console.log(feed);
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_SERVER_URL}/post/add-comment`,
+        `http://localhost:8000/post/add-comment`,
         {
           comment,
           post: feed,
@@ -216,7 +216,7 @@ const Feed = ({ feed }) => {
     </div>
   );
 };
- 
+
 // PropTypes to define the expected prop types for the Feed component
 Feed.propTypes = {
   feed: PropTypes.object.isRequired,

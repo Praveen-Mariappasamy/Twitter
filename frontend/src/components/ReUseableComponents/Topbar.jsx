@@ -1,9 +1,8 @@
 import { Disclosure } from "@headlessui/react";
-import { PlusIcon } from "@heroicons/react/24/outline";
 import { ButtonLink, Logo, SearchBar } from "../index";
 
 const Topbar = () => {
-  return ( 
+  return (
     // Disclosure component as the top-level container for navigation elements
     <Disclosure
       as="nav"
@@ -21,12 +20,6 @@ const Topbar = () => {
               <div className="flex items-center justify-end">
                 {/* SearchBar component */}
                 <SearchBar />
-                {/* ButtonLink component with a PlusIcon */}
-                <ButtonLink
-                  text=""
-                  to="#"
-                  Icon={<PlusIcon width="16px" height="16px" />}
-                />
               </div>
             </div>
           </div>

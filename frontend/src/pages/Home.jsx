@@ -5,7 +5,6 @@ import { MyContext } from "../context/MyContext";
 
 // Define the Home component using a functional component
 export default function Home() {
-
   const [posts, setPosts] = useState([]);
   const { socket } = useContext(MyContext);
 
@@ -13,7 +12,7 @@ export default function Home() {
   const fetchPosts = async () => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_SERVER_URL}/post/fetch-post`,
+        `http://localhost:8000/post/fetch-post`,
         { withCredentials: true }
       );
       setPosts(data.posts);

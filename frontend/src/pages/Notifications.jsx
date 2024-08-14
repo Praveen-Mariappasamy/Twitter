@@ -4,14 +4,14 @@ import { Notification } from "../components/index";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../context/MyContext";
- 
+
 // Notifications component displays a list of notifications
 const Notifications = () => {
   const { noti, setNoti, socket } = useContext(MyContext);
 
   const fetchNotification = async () => {
     try {
-      const { data } = await axios.get(`${import.meta.env.VITE_SERVER_URL}/notification`, {
+      const { data } = await axios.get(`http://localhost:8000/notification`, {
         withCredentials: true,
       });
       console.log("notification--> ", data.noti);
@@ -50,7 +50,7 @@ const Notifications = () => {
                       key={notification._id} // Unique key for React rendering
                       notification={notification} // Pass the notification object to Notification component
                     />
-                  )) 
+                  ))
                 ) : (
                   <div className="text-white text-center">
                     No new Notification

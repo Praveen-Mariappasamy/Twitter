@@ -28,7 +28,7 @@ const ProfileDropDown = () => {
     try {
       // Send a POST request to the logout endpoint to clear the session
       const { data } = await axios.post(
-        `${import.meta.env.VITE_SERVER_URL}/auth/logout`,
+        `http://localhost:8000/auth/logout`,
         null,
         {
           withCredentials: true,
@@ -46,7 +46,7 @@ const ProfileDropDown = () => {
         position: "top",
         isClosable: true,
       });
- 
+
       // Navigate the user to the signin page after successful logout
       navigate("/signin");
     } catch (error) {
@@ -93,12 +93,12 @@ const ProfileDropDown = () => {
           >
             {/* Render the logout icon */}
             <BiLogOut className="h-5 w-5" aria-hidden="true" />
-          </Button> 
+          </Button>
         </div>
       </MobileProfileModal>
     </Menu>
   );
 };
- 
+
 // Export the ProfileDropDown component as the default export
 export default ProfileDropDown;

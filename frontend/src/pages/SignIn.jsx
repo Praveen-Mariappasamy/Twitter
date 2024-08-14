@@ -1,4 +1,3 @@
-
 // Import necessary dependencies and components
 import { useContext, useState } from "react";
 import {
@@ -8,7 +7,6 @@ import {
   Form,
   FormHeader,
   AuthContainer,
-  DeveloperSlogan,
 } from "../components";
 import axios from "axios";
 import { useToast } from "@chakra-ui/react";
@@ -37,7 +35,7 @@ const SignIn = () => {
     try {
       // Make a POST request to the server to log in the user
       const { data } = await axios.post(
-        `${import.meta.env.VITE_SERVER_URL}/auth/login`,
+        `http://localhost:8000/auth/login`,
         {
           email,
           password,
@@ -117,9 +115,6 @@ const SignIn = () => {
           />
           <PrimaryButton type="submit">Sign In</PrimaryButton>
         </Form>
-
-        {/* Display the DeveloperSlogan component */}
-        <DeveloperSlogan />
       </AuthContainer>
     </div>
   );

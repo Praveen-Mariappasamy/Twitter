@@ -1,6 +1,6 @@
 // Import the Logo component from the "../index.js" file
 import { Logo } from "../index.js";
- 
+
 // Define the LogoWithName component
 const LogoWithName = () => {
   return (

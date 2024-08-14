@@ -23,7 +23,7 @@ const FriendCard = ({ person, user, setIsOpen, open, setSelectedUser }) => {
     console.log(person.name, " is remove");
     try {
       await axios.post(
-        `${import.meta.env.VITE_SERVER_URL}/friend/removeFriend`,
+        `http://localhost:8000/friend/removeFriend`,
         {
           friend_id: person.user, //id of the user
         },

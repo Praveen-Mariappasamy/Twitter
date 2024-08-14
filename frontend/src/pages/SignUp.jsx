@@ -8,7 +8,7 @@ import {
   FormHeader,
   AuthContainer,
   PlaceholderUserImage,
-  Label, 
+  Label,
   ImageSelector,
   InputFile,
 } from "../components";
@@ -94,7 +94,7 @@ const Signup = () => {
     try {
       // Send a POST request to the backend API to create a new account
       const { data } = await axios.post(
-        `${import.meta.env.VITE_SERVER_URL}/auth/signup`,
+        `http://localhost:8000/auth/signup`,
         {
           username,
           email,

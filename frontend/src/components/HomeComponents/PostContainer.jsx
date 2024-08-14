@@ -7,13 +7,12 @@ import { BiImageAdd } from "react-icons/bi";
 import { Button, InputFile } from "../index";
 import axios from "axios";
 import { useToast } from "@chakra-ui/react";
-import { Link } from "react-router-dom";  // Add this import
+import { Link } from "react-router-dom"; // Add this import
 
 const PostContainer = () => {
   // Access the loggedUser from the context using useContext hook
-  const { loggedUser } =
-    useContext(MyContext);
-  
+  const { loggedUser } = useContext(MyContext);
+
   const [sentimentResult, setSentimentResult] = useState(null);
   const [caption, setCaption] = useState("");
   const [img, setImg] = useState("");
@@ -66,14 +65,13 @@ const PostContainer = () => {
           });
         });
     }
-    
   };
 
   // function to create post
   const createPost = async () => {
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_SERVER_URL}/post/create-post`,
+        `http://localhost:8000/post/create-post`,
         {
           caption,
           img,
@@ -93,18 +91,18 @@ const PostContainer = () => {
       console.log(error);
     }
     try {
-      const response = await fetch('http://localhost:5000/analyze_sentiment', {
-        method: 'POST',
+      const response = await fetch("http://localhost:5000/analyze_sentiment", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ text: caption }),
       });
-  
+
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error("Network response was not ok");
       }
-  
+
       const data = await response.json();
       if (data.sentiment !== null) {
         setSentimentResult(data.sentiment.toString());
@@ -112,9 +110,8 @@ const PostContainer = () => {
         // Handle the case where data.sentiment is null (if needed)
         setSentimentResult("Sentiment data is null");
       }
-      
     } catch (error) {
-      console.error('Error:', error.message);
+      console.error("Error:", error.message);
     }
   };
 
@@ -180,7 +177,7 @@ const PostContainer = () => {
                   name="userPhoto"
                   onChange={(e) => imgUpload(e.target.files[0])} // Log a message when an image is uploaded (you may implement image upload logic here)
                 />
-              </div> 
+              </div>
             </div>
           </div>
         </div>
@@ -188,13 +185,15 @@ const PostContainer = () => {
       {sentimentResult === "0" && (
         <div className="bg-gray-200 text-center p-4 rounded-md">
           <p className="text-lg text-gray-800">
-            Don't be depressed. If you need help, feel free to talk to our assistant.
+            Don't be depressed. If you need help, feel free to talk to our
+            assistant.
           </p>
           <p className="text-sm text-gray-600 mt-2">
-            You can start a conversation with our assistant 
+            You can start a conversation with our assistant
             <Link to="/chatbot" className="ml-1 underline">
               here
-            </Link>.
+            </Link>
+            .
           </p>
           <p className="text-sm text-gray-600 mt-2">
             Here are some resources:

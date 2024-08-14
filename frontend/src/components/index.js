@@ -11,7 +11,6 @@ export { default as FormHeader } from "./AuthComponents/FormHeader.jsx";
 export { default as PlaceholderUserImage } from "./AuthComponents/PlaceholderUserImage";
 export { default as ImageSelector } from "./AuthComponents/ImageSelector";
 export { default as InputFile } from "./AuthComponents/InputFile";
-export { default as DeveloperSlogan } from "./AuthComponents/DeveloperSlogan";
 export { default as Loader } from "./AuthComponents/Loader.jsx";
 export { default as Sidebar } from "./ReUseableComponents/Sidebar";
 export { default as Topbar } from "./ReUseableComponents/Topbar";

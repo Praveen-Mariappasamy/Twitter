@@ -16,7 +16,7 @@ const Friends = () => {
   const fetchFriends = async () => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_SERVER_URL}/friend/fetchFriends`,
+        `http://localhost:8000/friend/fetchFriends`,
         { withCredentials: true }
       );
       console.log(data);
